@@ -1,6 +1,7 @@
 <h1> Transform Animation </h1>
 
 This package has the basic features so you can control an Animation to run at the desired time interval including rewinding easily.
+
 Download (included demo): https://github.com/xuannquy21/Transform_Animator/releases/download/v1/Transform.Animation.unitypackage
 
 <h2>Step 1: Bake</h2>
