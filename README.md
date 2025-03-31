@@ -13,6 +13,7 @@ This package has the basic features so you can control an Animation to run at th
 <h2>Step 2: Control</h2>
 - Now, create a new script to be able to control the time interval of your animation.
 <img src="https://github.com/user-attachments/assets/5e2d18e1-374f-4c50-8cbd-a0b8140447b8"/>
+
 - You can remove TransformAnimatorBaker
 
 - You can refer to AnimatorHandle.cs in Demo
