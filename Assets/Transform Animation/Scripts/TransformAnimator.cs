@@ -8,7 +8,7 @@ namespace Transform_Animator
 {
     public class TransformAnimator : MonoBehaviour
     {
-        public TranformAnimationRuntime[] tranformAnimationRuntimes;
+        public TransformAnimationRuntime[] tranformAnimationRuntimes;
 
         private float time = 0;
         private int currentAnim = 0;
@@ -25,7 +25,7 @@ namespace Transform_Animator
 
         public void Init(int totalClip)
         {
-            tranformAnimationRuntimes = new TranformAnimationRuntime[totalClip];
+            tranformAnimationRuntimes = new TransformAnimationRuntime[totalClip];
         }
 
         public void SetTime(float time)
@@ -40,7 +40,7 @@ namespace Transform_Animator
             ScaleProgress(clip);
         }
 
-        void PositionProgress(TranformAnimationRuntime data)
+        void PositionProgress(TransformAnimationRuntime data)
         {
             var totalCurve = data.PositionX.Count;
             for (int i = 0; i < totalCurve; i++)
@@ -59,7 +59,7 @@ namespace Transform_Animator
             }
         }
 
-        void EulerRotateProgress(TranformAnimationRuntime data)
+        void EulerRotateProgress(TransformAnimationRuntime data)
         {
             var totalCurve = data.EulerRotationX.Count;
             for (int i = 0; i < totalCurve; i++)
@@ -78,7 +78,7 @@ namespace Transform_Animator
             }
         }
 
-        void RotateProgress(TranformAnimationRuntime data)
+        void RotateProgress(TransformAnimationRuntime data)
         {
             var totalCurve = data.RotationX.Count;
             for (int i = 0; i < totalCurve; i++)
@@ -99,7 +99,7 @@ namespace Transform_Animator
             }
         }
 
-        void ScaleProgress(TranformAnimationRuntime data)
+        void ScaleProgress(TransformAnimationRuntime data)
         {
             var totalCurve = data.ScaleX.Count;
             for (int i = 0; i < totalCurve; i++)
@@ -118,7 +118,7 @@ namespace Transform_Animator
             }
         }
 
-        public TranformAnimationRuntime GetCurrentAnimData()
+        public TransformAnimationRuntime GetCurrentAnimData()
         {
             return tranformAnimationRuntimes[currentAnim];
         }
@@ -126,16 +126,16 @@ namespace Transform_Animator
 #if UNITY_EDITOR
         public void Bake()
         {
-            foreach (var tranformAnimationRuntime in tranformAnimationRuntimes)
+            foreach (var transformAnimationRuntime in tranformAnimationRuntimes)
             {
-                tranformAnimationRuntime.InitTransform();
+                transformAnimationRuntime.InitTransform();
             }
         }
 #endif
     }
 
     [Serializable]
-    public class TranformAnimationRuntime
+    public class TransformAnimationRuntime
     {
         public float length, speed;
         public bool isLoop;
@@ -147,7 +147,7 @@ namespace Transform_Animator
 
         public List<Transform> TargetPositionAnim, TargetEulerRotationAnim, TargetRotationAnim, TargetScaleAnim;
 
-        public TranformAnimationRuntime()
+        public TransformAnimationRuntime()
         {
             length = 0f;
             speed = 1f;

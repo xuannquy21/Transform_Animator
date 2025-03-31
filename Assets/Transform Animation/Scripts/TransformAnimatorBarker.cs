@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,13 +12,17 @@ namespace Transform_Animator
         [ContextMenu("Bake")]
         public void Bake()
         {
-            var tfController = transform.GetOrAddComponent<TransformAnimator>();
+            if (!TryGetComponent<TransformAnimator>(out var tfController))
+            {
+                tfController = gameObject.AddComponent<TransformAnimator>();
+            }
+                
             tfController.Init(clips.Length);
 
             for (int i = 0; i < clips.Length; i++)
             {
-                var controller = new TranformAnimationRuntime();
-                controller = new TranformAnimationRuntime();
+                var controller = new TransformAnimationRuntime();
+                controller = new TransformAnimationRuntime();
                 controller.length = clips[i].length;
 
                 foreach (var binding in AnimationUtility.GetCurveBindings(clips[i]))
@@ -142,8 +145,9 @@ namespace Transform_Animator
                 }
 
                 tfController.tranformAnimationRuntimes[i] = controller;
-                tfController.Bake();
             }
+            
+            tfController.Bake();
         }
 
 #endif
